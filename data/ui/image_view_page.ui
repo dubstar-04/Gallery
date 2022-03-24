@@ -10,13 +10,17 @@
     <property name="vexpand-set">True</property>
     <child>
       <object class="GtkImage" id="display_image">
+        <property name="pixel-size">500</property>
+        <property name="visible">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkDrawingArea" id="drawing_area">
         <property name="hexpand">True</property>
         <property name="hexpand-set">True</property>
-        <property name="pixel-size">500</property>
         <property name="vexpand">True</property>
         <property name="vexpand-set">True</property>
       </object>
     </child>
   </template>
-  <object class="GtkGestureZoom" id="gesture_zoom"/>
 </interface>

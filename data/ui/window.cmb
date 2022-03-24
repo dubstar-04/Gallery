@@ -20,7 +20,7 @@
 	(2,4,"GtkImage","image_object",3,None,None,None,None),
 	(3,1,"GtkBox","ImageViewPage",None,None,None,None,None),
 	(3,2,"GtkImage","display_image",1,None,None,None,None),
-	(3,3,"GtkGestureZoom","gesture_zoom",None,None,None,None,None),
+	(3,3,"GtkDrawingArea","drawing_area",1,None,None,None,1),
 	(4,1,"GtkScrolledWindow","GalleryViewPage",None,None,None,None,None),
 	(4,2,"GtkGridView","grid_layout",1,None,None,None,None)
   </object>
@@ -42,9 +42,10 @@
 	(3,1,"GtkWidget","vexpand","True",None,None,None,None,None),
 	(3,1,"GtkWidget","vexpand-set","True",None,None,None,None,None),
 	(3,2,"GtkImage","pixel-size","500",None,None,None,None,None),
-	(3,2,"GtkWidget","hexpand","True",None,None,None,None,None),
-	(3,2,"GtkWidget","hexpand-set","True",None,None,None,None,None),
-	(3,2,"GtkWidget","vexpand","True",None,None,None,None,None),
-	(3,2,"GtkWidget","vexpand-set","True",None,None,None,None,None)
+	(3,2,"GtkWidget","visible","False",None,None,None,None,None),
+	(3,3,"GtkWidget","hexpand","True",None,None,None,None,None),
+	(3,3,"GtkWidget","hexpand-set","True",None,None,None,None,None),
+	(3,3,"GtkWidget","vexpand","True",None,None,None,None,None),
+	(3,3,"GtkWidget","vexpand-set","True",None,None,None,None,None)
   </object_property>
 </cambalache-project>

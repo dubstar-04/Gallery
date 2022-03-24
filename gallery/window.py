@@ -40,8 +40,8 @@ class GalleryWindow(Gtk.ApplicationWindow):
         self.page_stack.add_named(self.image_page, 'image_view_page')
 
     def show_image(self, sender, file):
-        self.image_page.set_image(file.get_path())
         self.page_stack.set_visible_child_name('image_view_page')
+        self.image_page.set_image(file.get_path())
         self.back_button.set_visible(True)
 
     def back_pressed(self, sender):
