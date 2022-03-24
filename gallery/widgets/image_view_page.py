@@ -12,7 +12,8 @@ class ImageViewPage(Gtk.Widget):
         super().__init__()
 
     def set_image(self, image_path):
-        self.display_image.set_from_file(image)
+        self.display_image.set_from_file(image_path)
+        self.display_image.set_pixel_size(500)
 
 
 

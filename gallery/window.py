@@ -16,63 +16,36 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from gi.repository import Gtk, Gio
-from .library import *
-from gallery.widgets import image_widget, image_view_page
-
-#import os
-#print('dirname:     ', os.path.abspath(__file__))
-
-class factory(Gtk.ListItemFactory):
-
-    def __init__(self):
-        super().__init__()
-
+#from .library import *
+from gallery.widgets import image_widget, image_view_page, gallery_view_page
 
 @Gtk.Template(resource_path='/org/gnome/Gallery/ui/window.cmb.ui')
 class GalleryWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'GalleryWindow'
 
-    label = Gtk.Template.Child()
-    grid_layout = Gtk.Template.Child()
-    page_stack = Gtk.Template.Child()
+    # label = Gtk.Template.Child()
 
-    #test_image = Gtk.Template.Child()
+    page_stack = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.model_items = Gtk.DirectoryList()
-        self.model_items.set_file(Gio.File.new_for_path('/home/sandal/Pictures/'))
-        self.list_model = Gtk.SingleSelection(model=self.model_items)
-        self.grid_layout.set_model(self.list_model)
-
-        self.factory = Gtk.SignalListItemFactory()
-        self.factory.connect('setup', self.on_factory_setup)
-        self.factory.connect('bind', self.on_factory_bind)
-        self.factory.connect('unbind', self.on_factory_unbind)
-        self.factory.connect('teardown', self.on_factory_teardown)
-
-        self.grid_layout.set_factory(self.factory)
-
+        # define pages
+        self.gallery_page = gallery_view_page.GalleryViewPage()
         self.image_page = image_view_page.ImageViewPage()
-        #self.page_stack.add_child(self.image_page)
 
-    def on_factory_setup(self, widget, item: Gtk.ListItem):
-        iw = Gtk.Image()
-        iw.set_pixel_size(200)
-        item.set_child(iw)
+        self.image_page.set_image('/home/sandal/Pictures/toplevel.png')
 
-    def on_factory_bind(self, widget: Gtk.ListView, item: Gtk.ListItem):
-        data = item.get_item()
-        gfile = data.get_attribute_object("standard::file")
-        image = item.get_child()
-        image.set_from_file(gfile.get_path())
 
-    def on_factory_unbind(self, widget, item: Gtk.ListItem):
-        pass
+        #self.page_stack.add_named(self.gallery_page, 'gallery_view_page')
+        self.page_stack.add_child(self.image_page)
+        #self.page_stack.add_named(self.image_page, 'image_view_page')
+        #self.page_stack.set_visible_child_name('image_view_page')
+        #self.page_stack.add_titled(self.gallery_page, 'gallery_view_page', 'Images')
+        #self.page_stack.set_visible_child_name('gallery_view_page')
+        print(self.page_stack.get_visible_child())
 
-    def on_factory_teardown(self, widget, item: Gtk.ListItem):
-        pass
+
 
 class AboutDialog(Gtk.AboutDialog):
 

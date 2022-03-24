@@ -29,6 +29,7 @@ widget_sources = [
   'widgets/__init__.py',
   'widgets/image_widget.py',
   'widgets/image_view_page.py',
+  'widgets/gallery_view_page.py',
 
 ]
 

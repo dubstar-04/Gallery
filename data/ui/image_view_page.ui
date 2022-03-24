@@ -2,5 +2,17 @@
 <!-- Created with Cambalache 0.9.0 -->
 <interface>
   <requires lib="gtk" version="4.2"/>
-  <object class="GtkImage" id="display_image"/>
+  <object class="GtkBox">
+    <child>
+      <object class="GtkImage" id="display_image">
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel">
+        <property name="halign">baseline</property>
+      </object>
+    </child>
+  </object>
 </interface>
