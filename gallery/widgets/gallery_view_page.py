@@ -1,10 +1,12 @@
 
-from gi.repository import Gtk, Gio
+from gi.repository import Gtk, Gio, GObject
 
 @Gtk.Template(resource_path='/org/gnome/Gallery/ui/gallery_view_page.ui')
 class GalleryViewPage(Gtk.ScrolledWindow):
 
-    __gtype_name__ = 'gallery_view_page'
+    __gtype_name__ = 'GalleryViewPage'
+
+    __gsignals__ = {'image_selected' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT, )) }
 
     grid_layout = Gtk.Template.Child()
 
@@ -49,10 +51,7 @@ class GalleryViewPage(Gtk.ScrolledWindow):
         selected = self.list_model.get_selected_item()
         gfile = selected.get_attribute_object("standard::file")
         print("image path:", gfile.get_path())
-        self.page_stack.add_child(self.image_page)
-
-    def set_image(self, image_path):
-        self.display_image.set_from_file(image)
+        self.emit("image_selected", gfile)
 
 
 

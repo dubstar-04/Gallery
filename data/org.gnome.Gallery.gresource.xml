@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/Gallery">
-    <file>ui/window.cmb.ui</file>
+    <file>ui/window.ui</file>
     <file>ui/image_widget.ui</file>
     <file>ui/image_view_page.ui</file>
     <file>ui/help-overlay.ui</file>

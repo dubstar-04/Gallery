@@ -19,13 +19,12 @@ from gi.repository import Gtk, Gio
 #from .library import *
 from gallery.widgets import image_widget, image_view_page, gallery_view_page
 
-@Gtk.Template(resource_path='/org/gnome/Gallery/ui/window.cmb.ui')
+@Gtk.Template(resource_path='/org/gnome/Gallery/ui/window.ui')
 class GalleryWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'GalleryWindow'
 
-    # label = Gtk.Template.Child()
-
     page_stack = Gtk.Template.Child()
+    back_button = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -34,18 +33,20 @@ class GalleryWindow(Gtk.ApplicationWindow):
         self.gallery_page = gallery_view_page.GalleryViewPage()
         self.image_page = image_view_page.ImageViewPage()
 
-        self.image_page.set_image('/home/sandal/Pictures/toplevel.png')
+        self.gallery_page.connect("image_selected", self.show_image)
+        self.back_button.connect("clicked", self.back_pressed)
 
+        self.page_stack.add_named(self.gallery_page, 'gallery_view_page')
+        self.page_stack.add_named(self.image_page, 'image_view_page')
 
-        #self.page_stack.add_named(self.gallery_page, 'gallery_view_page')
-        self.page_stack.add_child(self.image_page)
-        #self.page_stack.add_named(self.image_page, 'image_view_page')
-        #self.page_stack.set_visible_child_name('image_view_page')
-        #self.page_stack.add_titled(self.gallery_page, 'gallery_view_page', 'Images')
-        #self.page_stack.set_visible_child_name('gallery_view_page')
-        print(self.page_stack.get_visible_child())
+    def show_image(self, sender, file):
+        self.image_page.set_image(file.get_path())
+        self.page_stack.set_visible_child_name('image_view_page')
+        self.back_button.set_visible(True)
 
-
+    def back_pressed(self, sender):
+        self.back_button.set_visible(False)
+        self.page_stack.set_visible_child_name('gallery_view_page')
 
 class AboutDialog(Gtk.AboutDialog):
 

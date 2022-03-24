@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=gallery
+Name=Gallery
 Exec=gallery
 Icon=org.gnome.Gallery
 Terminal=false

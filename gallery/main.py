@@ -18,14 +18,15 @@
 import sys
 import gi
 
+gi.require_version('Adw', '1')
 gi.require_version('Gtk', '4.0')
 
-from gi.repository import Gtk, Gio
+from gi.repository import Gtk, Gio, Adw
 
 from .window import GalleryWindow, AboutDialog
 
 
-class Application(Gtk.Application):
+class Application(Adw.Application):
     def __init__(self):
         super().__init__(application_id='org.gnome.Gallery',
                          flags=Gio.ApplicationFlags.FLAGS_NONE)

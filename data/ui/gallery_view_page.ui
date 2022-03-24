@@ -2,9 +2,9 @@
 <!-- Created with Cambalache 0.9.0 -->
 <interface>
   <requires lib="gtk" version="4.2"/>
-  <object class="GtkScrolledWindow">
+  <template class="GalleryViewPage" parent="GtkScrolledWindow">
     <child>
       <object class="GtkGridView" id="grid_layout"/>
     </child>
-  </object>
+  </template>
 </interface>
