@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=gallery
+Exec=gallery
+Icon=org.gnome.Gallery
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
