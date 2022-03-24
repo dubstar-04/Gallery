@@ -17,7 +17,17 @@
       </object>
     </child>
     <child>
-      <object class="GtkGridView" id="grid_layout"/>
+      <object class="GtkStack">
+        <child>
+          <object class="GtkScrolledWindow">
+            <child>
+              <object class="GtkGridView" id="grid_layout">
+                <property name="overflow">hidden</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
     </child>
   </template>
 </interface>

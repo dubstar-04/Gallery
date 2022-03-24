@@ -12,13 +12,16 @@
 	(1,1,"GtkApplicationWindow","GalleryWindow",None,None,None,None,None),
 	(1,2,"GtkHeaderBar","header_bar",1,None,"titlebar",None,None),
 	(1,3,"GtkMenuButton",None,2,None,"end",None,None),
-	(1,6,"GtkGridView","grid_layout",1,None,None,None,None),
+	(1,7,"GtkStack",None,1,None,None,None,2),
+	(1,8,"GtkScrolledWindow",None,7,None,None,None,None),
+	(1,9,"GtkGridView","grid_layout",8,None,None,None,None),
 	(2,2,"GtkImage","image_object",None,None,None,None,None)
   </object>
   <object_property>
 	(1,1,"GtkWindow","default-height","400",None,None,None,None,None),
 	(1,1,"GtkWindow","default-width","600",None,None,None,None,None),
 	(1,3,"GtkMenuButton","icon-name","open-menu-symbolic",None,None,None,None,None),
+	(1,9,"GtkWidget","overflow","hidden",None,None,None,None,None),
 	(2,2,"GtkImage","use-fallback","True",None,None,None,None,None)
   </object_property>
 </cambalache-project>
