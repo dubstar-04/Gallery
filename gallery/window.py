@@ -17,7 +17,7 @@
 
 from gi.repository import Gtk, Gio
 from .library import *
-from gallery.widgets import image_widget
+from gallery.widgets import image_widget, image_view_page
 
 #import os
 #print('dirname:     ', os.path.abspath(__file__))
@@ -34,6 +34,7 @@ class GalleryWindow(Gtk.ApplicationWindow):
 
     label = Gtk.Template.Child()
     grid_layout = Gtk.Template.Child()
+    page_stack = Gtk.Template.Child()
 
     #test_image = Gtk.Template.Child()
 
@@ -53,6 +54,8 @@ class GalleryWindow(Gtk.ApplicationWindow):
 
         self.grid_layout.set_factory(self.factory)
 
+        self.image_page = image_view_page.ImageViewPage()
+        #self.page_stack.add_child(self.image_page)
 
     def on_factory_setup(self, widget, item: Gtk.ListItem):
         iw = Gtk.Image()

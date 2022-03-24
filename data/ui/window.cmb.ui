@@ -17,7 +17,7 @@
       </object>
     </child>
     <child>
-      <object class="GtkStack">
+      <object class="GtkStack" id="page_stack">
         <child>
           <object class="GtkScrolledWindow">
             <child>

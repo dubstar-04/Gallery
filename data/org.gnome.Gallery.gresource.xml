@@ -3,6 +3,7 @@
   <gresource prefix="/org/gnome/Gallery">
     <file>ui/window.cmb.ui</file>
     <file>ui/image-widget.ui</file>
+     <file>ui/image_view_page.ui</file>
     <file>ui/help-overlay.ui</file>
   </gresource>
 </gresources>
